@@ -17,8 +17,8 @@ const server = net.createServer();
 const ee = new EE();
 
 //EventEmitters
-ee.on('\\nick', function(client, string1){
-  client.nickname = string1.trim();
+ee.on('\\nick', function(client, string){
+  client.nickname = string.trim();
 });
 
 ee.on('\\all', function(client, string){
@@ -28,7 +28,15 @@ ee.on('\\all', function(client, string){
 });
 
 ee.on('\\dm', function(client, string){
-  
+  var nickname, message;
+  nickname = string.toString().split(' ').shift().trim();
+  message = string.toString().split(' ').slice(1).join('');
+  pool.forEach(c => {
+    if(c.nickname == nickname){
+      client.socket.write('message sent to: ' + c.nickname);
+      c.socket.write(message);
+    }
+  })
 });
 
 ee.on('default', function(client, string){
@@ -50,6 +58,7 @@ server.on('connection', function(socket){
     ee.emit('default', client, data.toString());
 
   });
+
 });
 
 
