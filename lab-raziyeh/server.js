@@ -43,10 +43,12 @@ ee.on('default', function(client, string){
   client.socket.write('not a command');
 });
 
+
 /// module logic
 server.on('connection', function(socket){
   var client = new Client(socket);
   pool.push(client);
+
   socket.on('data', function(data) {
     const command = data.toString().split(' ').shift().trim();
 
@@ -56,9 +58,20 @@ server.on('connection', function(socket){
     }
 
     ee.emit('default', client, data.toString());
-
   });
 
+  socket.on('close', function(client){
+    pool.forEach(c => {
+      if(c.id === client.id){
+        let index = indexOf(c);
+        pool.splice(index,1);
+      }
+    })
+  });
+
+  socket.on('erorr', function(data){
+    console.error('There is an error', data);
+  });
 });
 
 
