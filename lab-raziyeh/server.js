@@ -60,7 +60,7 @@ server.on('connection', function(socket){
     ee.emit('default', client, data.toString());
   });
 
-  //whenever user close a tab socket in terminal in will be call.
+  //whenever user close a tab socket in terminal close will be call and remove that client from pool.
   socket.on('close', function(){
     pool.forEach(c => {
       if(c.id === client.id){
