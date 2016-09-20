@@ -38,4 +38,3 @@ impliedStrict: true
 },
 extends: "eslint:recommended"
 }
-env+-View sourceoptions

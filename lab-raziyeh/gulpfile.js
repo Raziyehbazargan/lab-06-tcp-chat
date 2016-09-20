@@ -10,7 +10,7 @@ gulp.task('test', function(){
 });
 
 gulp.task('eslint', function(){
-  return gulp.src(['**/*.js','!node_modules/**'])  //everything with.js but not in node_modules folder
+  return gulp.src(['**/*.js','!node_modules/**']) 
   .pipe(eslint())
   .pipe(eslint.format())
   .pipe(eslint.failAfterError());

@@ -36,7 +36,7 @@ ee.on('\\dm', function(client, string){
       client.socket.write('message sent to: ' + c.nickname);
       c.socket.write(message);
     }
-  })
+  });
 });
 
 ee.on('default', function(client, string){
@@ -56,7 +56,7 @@ server.on('connection', function(socket){
       ee.emit(command, client, data.toString().split(' ').slice(1).join(' '));
       return;
     }
-    
+
     ee.emit('default', client, data.toString());
   });
 
