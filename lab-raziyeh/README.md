@@ -21,7 +21,6 @@ These instructions will get you a copy of the project up and running on your loc
 ```
 npm install  -D gulp-eslint gulp-mocha mocha
 npm install --save node-uuid
-
 ```
 
 
@@ -39,13 +38,11 @@ Preferably in a separate terminal tab, run the command "telnet localhost 3000" t
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning.
 
 ## Authors
 
-* **Raziyeh Bazargan** - *Initial work* - [Github](https://github.com/RaziyehBazargan)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Raziyeh Bazargan** - [Github](https://github.com/RaziyehBazargan)
 
 ## License
 
