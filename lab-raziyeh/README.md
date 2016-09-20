@@ -1,12 +1,11 @@
 # Chat-Server
 =============
 
-This project is a very basic chat server that can be hosted on your terminal.
+> This project is a very basic chat server that can be hosted on your terminal.
 A user can create a username and type a message to the entire chatroom using a number "wack" commands.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisities
 
