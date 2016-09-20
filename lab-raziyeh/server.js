@@ -40,7 +40,7 @@ ee.on('\\dm', function(client, string){
 });
 
 ee.on('default', function(client, string){
-  client.socket.write('not a command');
+  client.socket.write('not a command', string);
 });
 
 
@@ -56,17 +56,18 @@ server.on('connection', function(socket){
       ee.emit(command, client, data.toString().split(' ').slice(1).join(' '));
       return;
     }
-
+    
     ee.emit('default', client, data.toString());
   });
 
-  socket.on('close', function(client){
+  //whenever user close a tab socket in terminal in will be call.
+  socket.on('close', function(){
     pool.forEach(c => {
       if(c.id === client.id){
-        let index = indexOf(c);
+        let index = pool.indexOf(c);
         pool.splice(index,1);
       }
-    })
+    });
   });
 
   socket.on('erorr', function(data){
